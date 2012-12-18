@@ -18,7 +18,8 @@ wsServer = new WebSocketServer({
 });
 
 function isAllowedOrigin(origin) {
-  if (origin === 'http://localhost') {
+  valid_origins = ['http://localhost', '127.0.0.1'];
+  if (valid_origins.indexOf(origin) != -1) {
     console.log('Connection accepted from origin ' + origin);
     return true;
   }
@@ -56,7 +57,8 @@ wsServer.on('request', function(request) {
           response = 'Keep typing, man. Keep typing.';
           break;
         default:
-          response = "Hello. Uh... what am I supposed to do with '" + message.utf8Data + "'?";
+          response = "Hello. Uh... what am I supposed to do with '" + 
+          message.utf8Data + "'?";
       }
       connection.sendUTF(response);
     }
