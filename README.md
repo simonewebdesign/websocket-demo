@@ -5,4 +5,4 @@ This is an implementation of the
 [Node.js](http://nodejs.org/).
 
 View the original post 
-[here](http://simonewebdesign.it/blog/101-web-socket-protocol-handshake-a-pragmatic-guide).
+[here](http://simonewebdesign.it/blog/101-web-socket-protocol-handshake).
