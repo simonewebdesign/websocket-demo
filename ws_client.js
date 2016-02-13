@@ -1,33 +1,32 @@
-(function(){
+(function () {
 
-  var ws = new WebSocket("ws://localhost:1337");
+  var ws = new WebSocket('ws://localhost:1337', 'echo-protocol');
 
-  ws.onopen = function(ev) {
+  ws.onopen = function (event) {
     console.log('Connection opened.');
   }
 
-  ws.onmessage = function(ev) {
-    console.log('Response from server: ' + ev.data);
+  ws.onmessage = function (event) {
+    console.log('Response from server: ' + event.data);
   }
 
-  ws.onclose = function(ev) {
+  ws.onclose = function (event) {
     console.log('Connection closed.');
   }
 
-  ws.onerror = function(ev) {
+  ws.onerror = function (event) {
     console.log('An error occurred. Sorry for that.');
   }
 
-  WebSocket.prototype.sendMessage = function(msg) {
-    this.send(msg);
-    console.log('Message sent: ' + msg);
+  WebSocket.prototype.sendMessage = function (message) {
+    this.send(message);
+    console.log('Message sent: ' + message);
   }
 
-  var sendBtn = document.getElementById('send');
-  sendBtn.addEventListener('click', function(ev) {
+  document.getElementById('send').addEventListener('click', function (event) {
+    event.preventDefault();
     var message = document.getElementById('message').value;
     ws.sendMessage(message);
-    ev.preventDefault();
   });
 
 })();

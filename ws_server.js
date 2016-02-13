@@ -18,11 +18,20 @@ wsServer = new WebSocketServer({
 });
 
 function isAllowedOrigin(origin) {
-  valid_origins = ['http://localhost', '127.0.0.1'];
+  console.log('Connection requested from origin ' + origin);
+
+  valid_origins = [
+    'http://localhost:8080',
+    '127.0.0.1',
+    'null'
+  ];
+
   if (valid_origins.indexOf(origin) != -1) {
     console.log('Connection accepted from origin ' + origin);
     return true;
   }
+
+  console.log('Origin ' + origin + ' is not allowed.')
   return false;
 }
 
@@ -33,7 +42,7 @@ wsServer.on('connection', function(webSocketConnection) {
 wsServer.on('request', function(request) {
 
   var connection = isAllowedOrigin(request.origin) ?
-    request.accept()
+    request.accept('echo-protocol', request.origin)
     : request.reject();
 
   connection.on('message', function(message) {
@@ -49,7 +58,7 @@ wsServer.on('request', function(request) {
           break;
         case 'hello':
           response = 'Heya!';
-          break;  
+          break;
         case 'xyzzy':
           response = 'Nothing happens.';
           break;
@@ -57,7 +66,7 @@ wsServer.on('request', function(request) {
           response = 'Keep typing, man. Keep typing.';
           break;
         default:
-          response = "Hello. Uh... what am I supposed to do with '" + 
+          response = "Hello. Uh... what am I supposed to do with '" +
           message.utf8Data + "'?";
       }
       connection.sendUTF(response);
