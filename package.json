@@ -1,0 +1,26 @@
+{
+  "name": "websocket-demo",
+  "version": "1.0.0",
+  "description": "A WebSocket demo",
+  "main": "server.js",
+  "dependencies": {
+    "http": "^0.0.0",
+    "websocket": "^1.0.22"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonewebdesign/websocket-demo.git"
+  },
+  "keywords": [
+    "websocket"
+  ],
+  "author": "Simone Vittori <hello+npm@simonewebdesign.it>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simonewebdesign/websocket-demo/issues"
+  },
+  "homepage": "https://github.com/simonewebdesign/websocket-demo#readme"
+}
