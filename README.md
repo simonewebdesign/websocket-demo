@@ -13,4 +13,4 @@ Assuming you have Node.js installed on your machine, just clone the repository a
 
 Then open index.html in your browser. 
 
-You shouldn't even need a web server, but I'd recommend using one anyway. If you have python installed it's just one command away, e.g.: `python -m SimpleHTTPServer 8080`. Then go to http://localhost:8080.
+You shouldn't even need a web server, but I'd recommend using one anyway. If you have python installed it's just one command away, e.g.: `python -m SimpleHTTPServer`. Then go to http://localhost:8000.
